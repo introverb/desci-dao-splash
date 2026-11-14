@@ -15,7 +15,7 @@
 
 :root{--fg:#f2f2f2;--dim:#8a8a8a;--line:#2a2a2a}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#050505;color:var(--fg);min-height:100%}
+html,body{overflow-x:hidden;background:#050505;color:var(--fg);min-height:100%}
 body{font:400 15px/1.5 JB,ui-monospace,monospace;
   background-image:radial-gradient(#1c1c1c 1px,transparent 1px);background-size:22px 22px;
   display:flex;align-items:center;justify-content:center;min-height:100vh;padding:48px 20px}
@@ -28,9 +28,12 @@ body{font:400 15px/1.5 JB,ui-monospace,monospace;
 main{width:100%;max-width:640px}
 .meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
 .meta .hex{text-transform:none}
-.token{width:min(260px,62vw);aspect-ratio:1;margin:36px auto 30px;display:block;animation:spin 120s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.token{animation:none}}
+.coin{position:relative;width:min(260px,62vw);aspect-ratio:1;margin:36px auto 30px}
+.token{position:relative;z-index:1;width:100%;height:100%;display:block}
+.coin i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(242,242,242,.5);opacity:0;pointer-events:none;animation:wave 7.5s cubic-bezier(.15,.55,.35,1) infinite}
+.coin i:nth-child(2){animation-delay:2.5s}.coin i:nth-child(3){animation-delay:5s}
+@keyframes wave{0%{transform:scale(1);opacity:.32}70%{opacity:.06}100%{transform:scale(3.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.coin i{animation:none}}
 h1{font:700 clamp(48px,11vw,88px)/.95 SG,system-ui,sans-serif;letter-spacing:-.025em}
 .sub{font-size:clamp(15px,3.6vw,19px);margin-top:14px}
 .rule{border-top:1px dashed #555;margin:28px 0 20px}
@@ -50,7 +53,7 @@ footer span{display:inline-flex;align-items:center;gap:10px}
 .go{height:15px;display:block}
 
 .reserve{height:14px;display:block}
-@media (max-width:520px){form{flex-direction:column}button{padding:15px 16px}.meta,.frame{display:none}.token{width:112px;margin:0 0 26px}body{align-items:flex-start;padding-top:40px}}
+@media (max-width:520px){form{flex-direction:column}button{padding:15px 16px}.meta,.frame{display:none}.coin{width:112px;margin:0 0 26px}body{align-items:flex-start;padding-top:40px}}
 :focus-visible{outline:2px solid var(--fg);outline-offset:3px}
 </style>
 </head>
@@ -58,7 +61,7 @@ footer span{display:inline-flex;align-items:center;gap:10px}
 <div class="frame"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
 <main>
   <div class="meta"><span>// pre-token · <span class="hex">0x0001</span></span><span>launching 2027</span></div>
-  <img class="token" src="token.svg" alt="DeSci DAO token: a beaker surrounded by circuitry">
+  <div class="coin" aria-hidden="false"><i></i><i></i><i></i><img class="token" src="token.svg" alt="DeSci DAO token: a beaker surrounded by circuitry"></div>
   <h1>DeSci DAO</h1>
   <p class="sub">One DAO to represent them all.</p>
   <div class="rule"></div>
