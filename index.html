@@ -12,7 +12,7 @@
 @font-face{font-family:SG;font-weight:700;src:url(sg-700.woff2) format("woff2")}
 @font-face{font-family:JB;font-weight:400;src:url(jb-400.woff2) format("woff2")}
 @font-face{font-family:JB;font-weight:700;src:url(jb-700.woff2) format("woff2")}
-@font-face{font-family:Bruno;src:url(bruno.woff2) format("woff2")}
+
 :root{--fg:#f2f2f2;--dim:#8a8a8a;--line:#2a2a2a}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#050505;color:var(--fg);min-height:100%}
@@ -47,10 +47,10 @@ button:disabled{opacity:.5;cursor:wait}
 .status.ok{color:var(--fg)}
 footer{margin-top:44px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
 footer span{display:inline-flex;align-items:center;gap:10px}
-.go{font-family:Bruno;font-size:14px;letter-spacing:0;color:var(--fg);text-transform:none}
-.go::before,.go::after{font-family:JB;font-weight:400}.go::before{content:"[";margin-right:.08em}.go::after{content:"]";margin-left:.08em}
+.go{height:15px;display:block}
+
 .reserve{height:14px;display:block}
-@media (max-width:520px){form{flex-direction:column}button{padding:15px 16px}}
+@media (max-width:520px){form{flex-direction:column}button{padding:15px 16px}.meta,.frame{display:none}.token{width:112px;margin:0 0 26px}body{align-items:flex-start;padding-top:40px}}
 :focus-visible{outline:2px solid var(--fg);outline-offset:3px}
 </style>
 </head>
@@ -75,7 +75,7 @@ footer span{display:inline-flex;align-items:center;gap:10px}
   </form>
   <p class="status" id="status" role="status" aria-live="polite">Sign up for the pre-token DAO launch.</p>
   <footer>
-    <span>Founded by <span class="go">GO</span></span>
+    <span>Founded by <img class="go" src="go.svg" alt="[GO]"></span>
     <span>Powered by <img class="reserve" src="reserve-white.png" alt="Reserve"></span>
   </footer>
 </main>
