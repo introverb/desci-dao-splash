@@ -13,7 +13,7 @@
 @font-face{font-family:JB;font-weight:400;src:url(jb-400.woff2) format("woff2")}
 @font-face{font-family:JB;font-weight:700;src:url(jb-700.woff2) format("woff2")}
 
-:root{--fg:#f2f2f2;--dim:#8a8a8a;--line:#2a2a2a}
+:root{--acc:#63a19c;--fg:#f2f2f2;--dim:#8a8a8a;--line:#2a2a2a}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden;background:#050505;color:var(--fg);min-height:100%}
 body{font:400 15px/1.5 JB,ui-monospace,monospace;
@@ -39,7 +39,8 @@ h1{font:700 clamp(48px,11vw,88px)/.95 SG,system-ui,sans-serif;letter-spacing:-.0
 .rule{border-top:1px dashed #555;margin:28px 0 20px}
 ul{list-style:none}
 li{display:flex;gap:14px;margin-bottom:10px;font-size:clamp(14px,3.3vw,16px)}
-li b{min-width:30px}
+li b{min-width:30px;color:var(--acc)}
+.acc{color:var(--acc)}
 form{margin-top:34px;display:flex;border:1px solid var(--fg)}
 input[type=email]{flex:1;min-width:0;background:transparent;border:0;color:var(--fg);font:inherit;padding:15px 16px;outline:none}
 input[type=email]::placeholder{color:#666}
@@ -62,7 +63,7 @@ footer span{display:inline-flex;align-items:center;gap:10px}
 <main>
   <div class="meta"><span>// pre-token · <span class="hex">0x0001</span></span><span>launching 2027</span></div>
   <div class="coin" aria-hidden="false"><i></i><i></i><i></i><img class="token" src="token.svg" alt="DeSci DAO token: a beaker surrounded by circuitry"></div>
-  <h1>DeSci DAO</h1>
+  <h1>De<span class="acc">Sci</span> DAO</h1>
   <p class="sub">One DAO to represent them all.</p>
   <div class="rule"></div>
   <ul>
